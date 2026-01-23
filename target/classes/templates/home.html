@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <h1>Welcome to Spring Security Demo!</h1>
+            
+            <div class="user-info">
+                <p>Hello, <strong th:text="${username}">User</strong>!</p>
+                <p sec:authorize="isAuthenticated()">
+                    You are successfully logged in.
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h2>What you've learned:</h2>
+                <ul>
+                    <li>✅ User registration with password encryption</li>
+                    <li>✅ Form-based authentication</li>
+                    <li>✅ Spring Security configuration</li>
+                    <li>✅ User details service implementation</li>
+                    <li>✅ Protected routes and access control</li>
+                </ul>
+            </div>
+            
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-secondary">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
